@@ -1,0 +1,116 @@
+:root {
+  --color:lightgray;
+  --border-radius:10px;
+}
+
+body {
+  background:#efefef;
+  padding:0;
+  margin:0;
+  box-sizing:border-box;
+}
+
+#puz, #puzz {
+  position:absolute;
+  border-radius:var(--border-radius) 0 var(--border-radius) 0;    
+  user-select:none;
+}
+#puz {
+  width:300px;
+  height:300px;
+  position:absolute;
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%);
+  border:3px dashed lightgray;
+  overflow:hidden;
+}
+#puzz {
+  left:0;
+  top:0;
+  border:0;
+}
+
+#puz i {
+  float:left;
+  width:100px;
+  height:100px;
+  outline:1px dashed lightgray;
+}
+
+#puzz i {
+  position:absolute;
+  width:100px;
+  height:100px;
+  background:var(--color);
+  background-image:var(--image);
+  background-size:300px 300px;
+  cursor:move;
+  box-shadow:0 0 10px rgba(0,0,0,.25);
+}
+
+.first {
+  border-top-left-radius:var(--border-radius);
+  background-position:left top !important;
+}
+.secon {
+  background-position:center top !important;
+}
+.third {
+/*   border-top-right-radius:var(--border-radius); */
+  background-position:right top !important;
+}
+.fourt {
+  background-position:left center !important;
+}
+.fifth {
+  background-position:center center !important;
+}
+.sixth {  
+  background-position:right center !important;
+}
+.seven {
+/*   border-bottom-left-radius:var(--border-radius); */
+  background-position:left bottom !important;
+}
+.eight {
+  background-position:center bottom !important;
+}
+.ninth {
+  border-bottom-right-radius:var(--border-radius);
+  background-position:right bottom !important;
+}
+
+.clicked {
+  box-shadow:0 0 0 4px gray !important;
+}
+
+.dropped {
+  background:var(--color);
+  background-image:var(--image);
+  background-size:300px 300px;
+}
+.done {
+  opacity:0;
+  pointer-events:none;
+}
+
+.allDone {
+  animation:allDone 1s linear forwards;
+  border:3px solid lightgray !important;
+}
+.allDone i {
+  outline:0 !important;
+}
+
+@keyframes allDone {
+  50% { transform:translate(-50%,-50%) scale(1.2); }
+}
+
+#clicks {
+  font-size:8px;
+  font-family:monospace;
+  position:absolute;
+  bottom:5px;
+  right:5px;
+}
